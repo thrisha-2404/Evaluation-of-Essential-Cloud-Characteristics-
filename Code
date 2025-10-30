@@ -1,0 +1,57 @@
+
+import random
+
+# Define essential cloud characteristics
+characteristics = [
+    "On-demand self-service",
+    "Broad network access",
+    "Resource pooling",
+    "Rapid elasticity",
+    "Measured service"
+]
+
+# Generate simulated evaluation metrics (scale 1–10)
+def evaluate_characteristics():
+    data = []
+    for c in characteristics:
+        # Simulate performance metrics
+        availability = round(random.uniform(8, 10), 2)
+        scalability = round(random.uniform(7, 10), 2)
+        cost_efficiency = round(random.uniform(6, 10), 2)
+        innovation_support = round(random.uniform(7, 10), 2)
+        sustainability = round(random.uniform(6, 9), 2)
+
+        avg_score = round(
+            (availability + scalability + cost_efficiency + innovation_support + sustainability) / 5, 2
+        )
+
+        data.append({
+            "Characteristic": c,
+            "Availability": availability,
+            "Scalability": scalability,
+            "Cost Efficiency": cost_efficiency,
+            "Innovation Support": innovation_support,
+            "Sustainability": sustainability,
+            "Average Score": avg_score
+        })
+    return data
+
+# Run evaluation
+results = evaluate_characteristics()
+
+print("=== Evaluation of Cloud Characteristics (SDG-9 Context) ===")
+print("-" * 80)
+for r in results:
+    print(f"{r['Characteristic']:<25} | Avg Score: {r['Average Score']}")
+print("-" * 80)
+
+# Optional: print detailed results
+for r in results:
+    print(f"\nCharacteristic: {r['Characteristic']}")
+    print(f"  Availability: {r['Availability']}")
+    print(f"  Scalability: {r['Scalability']}")
+    print(f"  Cost Efficiency: {r['Cost Efficiency']}")
+    print(f"  Innovation Support: {r['Innovation Support']}")
+    print(f"  Sustainability: {r['Sustainability']}")
+    print(f"  Average Score: {r['Average Score']}")
+
